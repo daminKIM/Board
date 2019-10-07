@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en,ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Posting home</title>
+
+</head>
+
+<body>
+    <h1>홈페이지입니다.</h1>
+    <a href="{% url 'upload'%}">글 쓰기 </a>
+    {% for post in post.all %}
+    <div class=" container">
+        <h1>{{ post.title }}</h1>
+        <p>작성 날짜 : {{ post.create_date }} 수정 날짜 : {{ post.modify_date }}</p>
+        <p>{{ post.summary }}<a href="{% url 'detail' post.id %}">more</a></p>
+        </p>
+        <br>
+
+    </div>
+    {% endfor %}
+</body>
+
+</html>
